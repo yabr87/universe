@@ -1,21 +1,11 @@
 :root {
   scroll-behavior: smooth;
   /*-----------------------------------*/
-  --home-background-color: #13161a;
+  --home-background-color: #000;
   /*-----------------------------------*/
 
-  --neutral-white: #fbfdff;
-  --neutral-background: #0f1113;
-  --neutral-black-800: #171b1f;
-  --neutral-black-700: #181c21;
-  --neutral-black-600: #22262a;
-  --neutral-black-500: #2d2f33;
-  --neutral-gray-400: #82858b;
-  --neutral-gray-300: #b3b7bd;
-  --neutral-gray-200: #d2d3d7;
-  --neutral-blue-100: #d6e9ff;
-  --accent-blue: #4285f4;
-  --font-family: 'Nunito Sans 10pt', sans-serif;
+  --neutral-white: #fafafa;
+  --font-family: 'D-DIN', sans-serif;
   /*-----------------------------------*/
   --timing-function: 500ms ease-out;
   --timing-function-1: 300ms ease-in-out;
