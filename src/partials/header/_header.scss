@@ -44,7 +44,7 @@ $menu-icon-dash-color: var(--white);
 
     &.desctop-menu {
 
-      @include desktop {
+      @include laptop {
         display: block;
       }
     }
