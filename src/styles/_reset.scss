@@ -16,7 +16,6 @@ ul {
 
 body {
   margin: 0;
-  line-height: 1.5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -63,11 +62,6 @@ html,
   scroll-behavior: smooth;
 }
 
-body {
-  min-height: 100%;
-  line-height: 1.5;
-}
-
 // svg *[fill] {
 //   fill: currentColor;
 // }
@@ -83,12 +77,11 @@ a {
   display: block;
   color: currentColor;
   text-decoration: none;
+  @include pointer;
 }
 
-@media (pointer: fine) {
-  button {
-    cursor: pointer;
-  }
+button {
+  @include pointer;
 }
 
 img,

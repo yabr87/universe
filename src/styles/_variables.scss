@@ -13,9 +13,8 @@
   /*-----------------------------------*/
   --timing-function: 500ms ease-out;
   --timing-function-1: 300ms ease-in-out;
-  --burger-menu: all .25s ease-out;
+  --burger-menu: all 0.25s ease-out;
   /*-----------------------------------*/
-  --iti-spacer-horizontal: 24px !important;
+
+  --tf-btn: cubic-bezier(0.19, 1, 0.22, 1);
 }
-
-
