@@ -3,9 +3,12 @@
 @import './styles/reset';
 @import './styles/global';
 
-@import '/styles/buttons';
+@import './styles/buttons';
 
 @import './partials/header/header';
+
+@import './partials/home/hero/hero';
+@import './partials/home/discovery/discovery';
 
 @import './partials/footer/footer';
 
