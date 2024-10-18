@@ -81,12 +81,17 @@
   position: relative;
   width: 32px;
   height: 32px;
+  margin-right: 20px;
   cursor: pointer;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+
+  @include tablet {
+    margin-right: 50px;
+  }
 }
 
 .desk-menu-wrap {
@@ -116,7 +121,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 120%;
+  height: 130%;
   background-color: var(--black);
   opacity: 0.8;
 }
@@ -124,7 +129,7 @@
 .menu-list {
   position: absolute;
   top: 100px;
-  right: 20px;
+  right: 50px;
   display: flex;
   flex-direction: column;
   z-index: 50;
