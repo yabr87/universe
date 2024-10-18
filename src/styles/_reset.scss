@@ -62,6 +62,10 @@ html,
   scroll-behavior: smooth;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neutral-white) var(--home-background-color);
+}
 // svg *[fill] {
 //   fill: currentColor;
 // }
