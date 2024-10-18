@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isOpen = menu.getAttribute('data-menu-open') === 'true';
     menu.setAttribute('data-menu-open', !isOpen);
     burgerIcon.setAttribute('data-menu-open', !isOpen);
+    console.log(`Menu is now ${!isOpen ? 'open' : 'closed'}`);
   });
 
   document.addEventListener('click', event => {

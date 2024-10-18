@@ -109,37 +109,37 @@ $menu-icon-dash-color: var(--white);
   }
 }
 
-
 .menu {
-  position: relative;
-  display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    max-width: 350px;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    transform: translateX(100%);
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    z-index: 100;
-    padding-top: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 350px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 100;
+  padding-top: 60px;
 
-    .nav-link-item {
-        display: block;     
-      }
+  .nav-link-item.mob-item {
+    display: block; 
+
+    @include laptop {
+      display: none;
+    }
+  }
 }
 
-.menu[data-menu-open="true"] .nav-link-item.mob-menu {
-  display: block;
+.menu[data-menu-open="true"] {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .mob-menu {
-  display: none;
+  display: none; 
 }
 
 .burger-wrapper {
