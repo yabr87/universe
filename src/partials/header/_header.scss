@@ -19,22 +19,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-
-  .nav-link-item {
-    display: none;
-
-    &.mob-menu {
-      display: none; // Hidden by default
-    }
-
-    &.desctop-menu {
-
-      @include laptop {
-        display: block;
-      }
-    }
-  }
 }
+
+
 
 .menu-icon {
   width: 2rem;
@@ -92,20 +79,49 @@
 }
 
 
-.menu {
-  transition: max-height 0.3s ease;
-  overflow: hidden;
-  max-height: 0;
+.desk-menu-wrap {
+  display: none;
 
-  &.open {
-    max-height: 500px; 
-    
+  @include laptop {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 0;
+  
+    &.open {
+      max-height: 500px;
+      max-width: 350px;
+
+    }
+  }
+  
+}
+
+.desktop-menu {
+  display: none;
+
+  @include laptop {
+    display: flex;
   }
 }
 
 
-.mob-menu {
-  display: none;
+.mobile-menu {
+  transition: max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 0;
+  
+    &.open {
+      max-height: 500px;
+  
+    }
+
+    @include laptop {
+      display: none;
+    }
 }
 
 
