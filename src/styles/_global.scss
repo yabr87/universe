@@ -112,7 +112,6 @@ section {
     transform-origin: right center;
     transform: scale(0, 1);
     transition: transform 0.6s var(--tf-btn);
-    z-index: -1;
   }
 
   &:hover::before {
