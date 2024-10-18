@@ -1,19 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const burgerBtn = document.querySelector('[data-burger-btn]');
-  const burgerIcon = document.querySelector('[data-burger-icon]');
-  const menu = document.querySelector('[data-menu]');
+  const burgerBtn = document.querySelector('.menu-icon');
+  const menu = document.querySelector('.menu');
 
   burgerBtn.addEventListener('click', () => {
-    const isOpen = menu.getAttribute('data-menu-open') === 'true';
-    menu.setAttribute('data-menu-open', !isOpen);
-    burgerIcon.setAttribute('data-menu-open', !isOpen);
-    console.log(`Menu is now ${!isOpen ? 'open' : 'closed'}`);
+    burgerBtn.classList.toggle('open');
+    menu.classList.toggle('open');
   });
 
   document.addEventListener('click', event => {
     if (!menu.contains(event.target) && !burgerBtn.contains(event.target)) {
-      menu.setAttribute('data-menu-open', 'false');
-      burgerIcon.setAttribute('data-menu-open', 'false');
+      burgerBtn.classList.remove('open');
+      menu.classList.remove('open');
     }
   });
 });

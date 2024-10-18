@@ -1,18 +1,3 @@
-$menu-icon-size: 2rem;
-$menu-icon-dash-width: 100%;
-$menu-icon-dash-height: 0.2em;
-$menu-icon-dash-gutter: 0.6em;
-$menu-icon-dash-color: var(--white);
-
-%menu-dash {
-  display: block;
-  position: absolute;
-  background-color: $menu-icon-dash-color;
-  width: $menu-icon-dash-width;
-  height: $menu-icon-dash-height;
-  transition: transform 0.3s ease;
-}
-
 .header {
   padding: 16px 0;
   width: calc(100vw - 20px);
@@ -52,8 +37,8 @@ $menu-icon-dash-color: var(--white);
 }
 
 .menu-icon {
-  width: $menu-icon-size;
-  height: $menu-icon-size;
+  width: 2rem;
+  height: 2rem;
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -63,11 +48,10 @@ $menu-icon-dash-color: var(--white);
     position: absolute;
     left: 0;
     top: 50%;
-    width: $menu-icon-dash-width;
-    height: $menu-icon-dash-height;
-    background-color: $menu-icon-dash-color;
+    width: 100%;
+    height: 0.2em;
+    background-color: var(--white);
     border-radius: 2px;
-   
     transition: transform 0.3s ease, top 0.3s ease, background-color 0.3s ease;
     transform-origin: center;
 
@@ -76,25 +60,23 @@ $menu-icon-dash-color: var(--white);
       content: "";
       position: absolute;
       left: 0;
-      width: $menu-icon-dash-width;
-      height: $menu-icon-dash-height;
-      background-color: $menu-icon-dash-color;
+      width: 100%;
+      height: 0.2em;
+      background-color: var(--white);
       border-radius: 2px;
       transition: transform 0.3s ease, top 0.3s ease;
     }
 
     &:before {
-      top: -$menu-icon-dash-gutter;
-      transform-origin: center;
+      top: -0.6em;
     }
 
     &:after {
-      top: $menu-icon-dash-gutter;
-      transform-origin: center;
+      top: 0.6em;
     }
   }
 
-  &[data-menu-open="true"] span {
+  &.open span {
     background-color: transparent;
 
     &:before {
@@ -109,38 +91,23 @@ $menu-icon-dash-color: var(--white);
   }
 }
 
+
 .menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 350px;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
-  transform: translateX(100%);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  z-index: 100;
-  padding-top: 60px;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+  max-height: 0;
 
-  .nav-link-item.mob-item {
-    display: block; 
-
-    @include laptop {
-      display: none;
-    }
+  &.open {
+    max-height: 500px; 
+    
   }
 }
 
-.menu[data-menu-open="true"] {
-  transform: translateX(0);
-  opacity: 1;
-}
 
 .mob-menu {
-  display: none; 
+  display: none;
 }
+
 
 .burger-wrapper {
   cursor: pointer;
