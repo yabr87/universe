@@ -1,12 +1,11 @@
 .footer {
-  background-color:  var(--black);;
+  background-color: var(--black);
   padding: 20px 0;
 
   @include laptop {
     padding: 40px 0;
   }
 }
-
 
 .footer-nav {
   display: flex;
@@ -22,24 +21,6 @@
   }
 }
 
-
-.nav-link {
-  display: flex;
-  flex-wrap: nowrap;
-  font-weight: 700;
-    font-size: 15px;
-    line-height: 1.2;
-    text-transform: uppercase;
-    text-align: center;
-    color:var(--white);
-  transition: all var(--timing-function-1);
-
-  @include hover {
-      color: var(--accent-blue);
-    }
-}
-
-
 .footer-copyright {
   font-size: 12px;
   line-height: 1.75;
@@ -48,7 +29,6 @@
   color: var(--gray-copyright);
   opacity: 0.6;
   margin-top: 24px;
-  
 
   @include laptop {
     margin-top: 30px;
