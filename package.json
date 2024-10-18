@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write 'src/**/*.svg'"
+  },
+  "license": "ISC",
+  "dependencies": {    
+    "axios": "^1.7.2",    
+    "formbouncerjs": "^1.4.6",    
+    "micromodal": "^0.4.10",
+    "notiflix": "^3.2.7",
+    "swiper": "^11.1.4"
+  },
+  "devDependencies": {
+    "glob": "^8.1.0",
+    "prettier": "^3.3.3",
+    "sass": "^1.63.6",
+    "vite": "^4.5.3",
+    "vite-plugin-full-reload": "^1.0.5",
+    "vite-plugin-html-inject": "^1.0.1"
+  }
+}

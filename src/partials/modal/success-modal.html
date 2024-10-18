@@ -1,0 +1,46 @@
+<div class="modal micromodal-slide" id="modal-2" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1">
+    <div class="modal__container" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <img
+          class="modal-logo-img"
+          src="./img/logo.svg"
+          alt="logo"
+          height="35"
+        />
+
+        <button
+          class="modal__btn"
+          data-micromodal-close
+          aria-label="Close this dialog window"
+        >
+          <img width="32" height="32" src="./img/close.svg" alt="close img" />
+        </button>
+      </div>
+      <div class="modal__content js-modal-content" id="modal-2-content">
+        <div class="mini-modal-content visible js-mini-modal-content">
+          <img
+            class="success-modal-img"
+            src="./img/done-icon.svg"
+            width="150"
+            height="150"
+            alt="done icon"
+          />
+          <div>
+            <p class="success-modal-title lng">Thank you for your request!</p>
+            <p class="success-modal-text lng">We will contact you shortly</p>
+          </div>
+
+          <button class="btn" data-micromodal-close>
+            <span class="btn-text modal-btn-text lng">Close</span>
+            <div class="btn-icon-wrapper">
+              <svg class="btn-icon" height="25" width="25">
+                <use href="./icons-sprite.svg#icon-arrow-btn"></use>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
