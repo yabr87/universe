@@ -1,56 +1,37 @@
-const menuRefs = {
-  menuBtn: document.querySelector('.js-burger-btn'),
-  menuIcon: document.querySelector('.js-burger-icon'),
-  menu: document.querySelector('.js-mobile-menu'),
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const getElement = selector => document.querySelector(selector);
 
-const toggleMobileMenu = () => {
-  if (window.innerWidth >= 1280) {
-    return;
-  }
+  const toggleClass = (element, className) =>
+    element.classList.toggle(className);
 
-  if (!menuRefs.menu.classList.contains('menu-open')) {
-    openMenu();
-  } else {
-    closeMenu();
-  }
-};
+  const initMobileMenu = () => {
+    const burgerBtn = getElement('.js-burger-btn');
+    const mobileMenu = getElement('.js-mobile-menu');
+    const burgerIcon = getElement('.js-burger-icon');
+    const body = document.body;
 
-const openMenu = () => {
-  menuRefs.menuIcon.classList.add('burger-active');
-  menuRefs.menu.classList.add('menu-open');
-  toggleScrolling();
-  setTimeout(() => {
-    menuRefs.menu.classList.add('menu-bg');
-  }, 200);
-};
+    const handleMenuToggle = () => {
+      toggleClass(mobileMenu, 'menu-open');
+      toggleClass(burgerIcon, 'burger-active');
+      toggleClass(body, 'is-menu-open');
 
-const closeMenu = () => {
-  menuRefs.menuIcon.classList.remove('burger-active');
-  menuRefs.menu.classList.remove('menu-bg');
-  toggleScrolling();
-  setTimeout(() => {
-    menuRefs.menu.classList.remove('menu-open');
-  }, 200); // Можно изменить задержку по необходимости
-};
+      setTimeout(() => toggleClass(mobileMenu, 'menu-bg'), 10);
+    };
 
-const toggleScrolling = () => {
-  const scroll = document.body.scrollWidth;
-  document.body.classList.toggle('is-menu-open');
-  const noScroll = document.body.scrollWidth;
+    const handleOutsideClick = event => {
+      if (
+        !mobileMenu.contains(event.target) &&
+        !burgerBtn.contains(event.target)
+      ) {
+        mobileMenu.classList.remove('menu-open', 'menu-bg');
+        burgerIcon.classList.remove('burger-active');
+        body.classList.remove('is-menu-open');
+      }
+    };
 
-  const menuOpen = document.body.classList.contains('is-menu-open');
+    burgerBtn.addEventListener('click', handleMenuToggle);
+    document.addEventListener('click', handleOutsideClick);
+  };
 
-  if (menuOpen) {
-    document.body.style.paddingRight = `${noScroll - scroll}px`;
-  } else {
-    document.body.style.paddingRight = '0px';
-  }
-};
-
-menuRefs.menuBtn.addEventListener('click', toggleMobileMenu);
-
-menuRefs.menu.addEventListener('click', e => {
-  if (!e.target.matches('a')) return;
-  toggleMobileMenu();
+  initMobileMenu();
 });

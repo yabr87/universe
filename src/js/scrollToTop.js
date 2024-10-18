@@ -1,10 +1,7 @@
 const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
 
 window.addEventListener('scroll', () => {
-  if (
-    document.body.scrollTop > 300 ||
-    document.documentElement.scrollTop > 300
-  ) {
+  if (window.scrollY > 100) {
     scrollToTopBtn.classList.add('show');
   } else {
     scrollToTopBtn.classList.remove('show');
@@ -12,6 +9,8 @@ window.addEventListener('scroll', () => {
 });
 
 scrollToTopBtn.addEventListener('click', () => {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 });
