@@ -1,19 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const burgerBtn = document.querySelector('[data-burger-btn]');
-  const burgerIcon = document.querySelector('[data-burger-icon]');
-  const menu = document.querySelector('[data-menu]');
+  const burgerWrapper = document.querySelector('[data-burger-btn]');
+  const desktopMenu = document.querySelector('[data-desktop-menu]');
+  const mobileMenu = document.querySelector('[data-mob-menu]');
 
-  burgerBtn.addEventListener('click', () => {
-    const isOpen = menu.getAttribute('data-menu-open') === 'true';
-    menu.setAttribute('data-menu-open', !isOpen);
-    burgerIcon.setAttribute('data-menu-open', !isOpen);
-    console.log(`Menu is now ${!isOpen ? 'open' : 'closed'}`);
+  burgerWrapper.addEventListener('click', () => {
+    burgerWrapper.querySelector('[data-burger-icon]').classList.toggle('open');
+    desktopMenu.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
   });
 
   document.addEventListener('click', event => {
-    if (!menu.contains(event.target) && !burgerBtn.contains(event.target)) {
-      menu.setAttribute('data-menu-open', 'false');
-      burgerIcon.setAttribute('data-menu-open', 'false');
+    if (
+      !desktopMenu.contains(event.target) &&
+      !burgerWrapper.contains(event.target) &&
+      !mobileMenu.contains(event.target)
+    ) {
+      closeMenus();
     }
   });
+
+  window.addEventListener('scroll', () => {
+    if (desktopMenu.classList.contains('open')) {
+      closeMenus();
+    }
+  });
+
+  function closeMenus() {
+    burgerWrapper.querySelector('[data-burger-icon]').classList.remove('open');
+    desktopMenu.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
 });

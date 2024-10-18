@@ -1,32 +1,15 @@
-$menu-icon-size: 2rem;
-$menu-icon-dash-width: 100%;
-$menu-icon-dash-height: 0.2em;
-$menu-icon-dash-gutter: 0.6em;
-$menu-icon-dash-color: var(--white);
-
-%menu-dash {
-  display: block;
-  position: absolute;
-  background-color: $menu-icon-dash-color;
-  width: $menu-icon-dash-width;
-  height: $menu-icon-dash-height;
-  transition: transform 0.3s ease;
-}
-
 .header {
-  padding: 16px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100px;
   width: calc(100vw - 20px);
   overflow: hidden;
 
   .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding-right: 0;
-
-    @include laptop {
-      padding-right: 20px;
-    }
   }
 }
 
@@ -34,67 +17,59 @@ $menu-icon-dash-color: var(--white);
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-
-  .nav-link-item {
-    display: none;
-
-    &.mob-menu {
-      display: none; // Hidden by default
-    }
-
-    &.desctop-menu {
-
-      @include laptop {
-        display: block;
-      }
-    }
-  }
+  margin-left: 50px;
 }
 
+
+
 .menu-icon {
-  width: $menu-icon-size;
-  height: $menu-icon-size;
-  position: relative;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  top: 25px;
   cursor: pointer;
   transition: transform 0.3s ease;
-  z-index: 100;
+  z-index: 10;
+
 
   span {
     position: absolute;
-    left: 0;
-    top: 50%;
-    width: $menu-icon-dash-width;
-    height: $menu-icon-dash-height;
-    background-color: $menu-icon-dash-color;
+    right: 0;
+    top: 25px;
+    width: 100%;
+    height: 0.16em;
+    background-color: var(--white);
     border-radius: 2px;
-   
     transition: transform 0.3s ease, top 0.3s ease, background-color 0.3s ease;
     transform-origin: center;
+
+    @include laptop {
+        right: 50px;
+      }
 
     &:before,
     &:after {
       content: "";
       position: absolute;
       left: 0;
-      width: $menu-icon-dash-width;
-      height: $menu-icon-dash-height;
-      background-color: $menu-icon-dash-color;
+      width: 100%;
+      height: 0.16em;
+      background-color: var(--white);
       border-radius: 2px;
       transition: transform 0.3s ease, top 0.3s ease;
     }
 
     &:before {
-      top: -$menu-icon-dash-gutter;
-      transform-origin: center;
+      top: -0.6em;
     }
 
     &:after {
-      top: $menu-icon-dash-gutter;
-      transform-origin: center;
+      top: 0.6em;
     }
   }
 
-  &[data-menu-open="true"] span {
+  &.open span {
     background-color: transparent;
 
     &:before {
@@ -109,42 +84,82 @@ $menu-icon-dash-color: var(--white);
   }
 }
 
-.menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 350px;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
-  transform: translateX(100%);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+.burger-wrapper {
+  cursor: pointer;
   z-index: 100;
-  padding-top: 60px;
+  display: block;
+  transition: all 0.3s ease;
+}
 
-  .nav-link-item.mob-item {
-    display: block; 
+.desk-menu-wrap {
+  display: none;
 
-    @include laptop {
-      display: none;
+  @include laptop {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 120%;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+
+    &.open {
+      display: flex;
+      flex-direction: column;
+      text-align: end;
+      z-index: 50;
+      transform: translateX(0);
     }
   }
 }
 
-.menu[data-menu-open="true"] {
-  transform: translateX(0);
-  opacity: 1;
+.desk-menu-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
+  opacity: 0.8;
 }
 
-.mob-menu {
-  display: none; 
-}
-
-.burger-wrapper {
-  cursor: pointer;
+.desk-menu-list {
+  position: absolute;
+  top: 144px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 44px;
   z-index: 50;
-  display: block;
-  transition: all 0.3s ease;
 }
+
+.mob-item{
+font-size: 16px;
+  line-height: 4.375;
+}
+
+
+.desktop-menu {
+  display: none;
+
+  @include laptop {
+    display: flex;
+  }
+}
+
+
+.mobile-menu {
+  transition: max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 0;
+  
+    &.open {
+      max-height: 500px;
+  
+    }
+
+    @include laptop {
+      display: none;
+    }
+}
+
