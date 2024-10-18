@@ -1,56 +1,19 @@
-const menuRefs = {
-  menuBtn: document.querySelector('.js-burger-btn'),
-  menuIcon: document.querySelector('.js-burger-icon'),
-  menu: document.querySelector('.js-mobile-menu'),
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerBtn = document.querySelector('[data-burger-btn]');
+  const burgerIcon = document.querySelector('[data-burger-icon]');
+  const menu = document.querySelector('[data-menu]');
 
-const toggleMobileMenu = () => {
-  if (window.innerWidth >= 1280) {
-    return;
-  }
+  burgerBtn.addEventListener('click', () => {
+    const isOpen = menu.getAttribute('data-menu-open') === 'true';
+    menu.setAttribute('data-menu-open', !isOpen);
+    burgerIcon.setAttribute('data-menu-open', !isOpen);
+    console.log(`Menu is now ${!isOpen ? 'open' : 'closed'}`);
+  });
 
-  if (!menuRefs.menu.classList.contains('menu-open')) {
-    openMenu();
-  } else {
-    closeMenu();
-  }
-};
-
-const openMenu = () => {
-  menuRefs.menuIcon.classList.add('burger-active');
-  menuRefs.menu.classList.add('menu-open');
-  toggleScrolling();
-  setTimeout(() => {
-    menuRefs.menu.classList.add('menu-bg');
-  }, 200);
-};
-
-const closeMenu = () => {
-  menuRefs.menuIcon.classList.remove('burger-active');
-  menuRefs.menu.classList.remove('menu-bg');
-  toggleScrolling();
-  setTimeout(() => {
-    menuRefs.menu.classList.remove('menu-open');
-  }, 200); // Можно изменить задержку по необходимости
-};
-
-const toggleScrolling = () => {
-  const scroll = document.body.scrollWidth;
-  document.body.classList.toggle('is-menu-open');
-  const noScroll = document.body.scrollWidth;
-
-  const menuOpen = document.body.classList.contains('is-menu-open');
-
-  if (menuOpen) {
-    document.body.style.paddingRight = `${noScroll - scroll}px`;
-  } else {
-    document.body.style.paddingRight = '0px';
-  }
-};
-
-menuRefs.menuBtn.addEventListener('click', toggleMobileMenu);
-
-menuRefs.menu.addEventListener('click', e => {
-  if (!e.target.matches('a')) return;
-  toggleMobileMenu();
+  document.addEventListener('click', event => {
+    if (!menu.contains(event.target) && !burgerBtn.contains(event.target)) {
+      menu.setAttribute('data-menu-open', 'false');
+      burgerIcon.setAttribute('data-menu-open', 'false');
+    }
+  });
 });

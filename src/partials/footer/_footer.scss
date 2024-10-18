@@ -34,12 +34,11 @@
     color:var(--white);
   transition: all var(--timing-function-1);
 
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
+  @include hover {
       color: var(--accent-blue);
     }
-  }
 }
+
 
 .footer-copyright {
   font-size: 12px;
