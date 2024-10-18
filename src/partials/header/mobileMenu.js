@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const burgerBtn = document.querySelector('[data-burger-icon]');
+  const burgerWrapper = document.querySelector('[data-burger-btn]');
   const desktopMenu = document.querySelector('[data-desktop-menu]');
   const mobileMenu = document.querySelector('[data-mob-menu]');
 
-  burgerBtn.addEventListener('click', () => {
-    burgerBtn.classList.toggle('open');
+  burgerWrapper.addEventListener('click', () => {
+    burgerWrapper.querySelector('[data-burger-icon]').classList.toggle('open');
     desktopMenu.classList.toggle('open');
     mobileMenu.classList.toggle('open');
   });
@@ -12,12 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', event => {
     if (
       !desktopMenu.contains(event.target) &&
-      !burgerBtn.contains(event.target) &&
+      !burgerWrapper.contains(event.target) &&
       !mobileMenu.contains(event.target)
     ) {
-      burgerBtn.classList.remove('open');
-      desktopMenu.classList.remove('open');
-      mobileMenu.classList.remove('open');
+      closeMenus();
     }
   });
+
+  window.addEventListener('scroll', () => {
+    if (desktopMenu.classList.contains('open')) {
+      closeMenus();
+    }
+  });
+
+  function closeMenus() {
+    burgerWrapper.querySelector('[data-burger-icon]').classList.remove('open');
+    desktopMenu.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
 });
