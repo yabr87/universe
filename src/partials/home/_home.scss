@@ -78,7 +78,7 @@
   text-align: center;
   row-gap: 6px;
 
-  @include laptop {
+  @include tablet {
     flex-direction: row;
     justify-content: center;
     column-gap: 16px;
@@ -87,7 +87,7 @@
 
 .hero-email {
   width: 100%;
-  max-width: 407px;
+  max-width: 325px;
   height: 50px;
   padding: 15px;
   backdrop-filter: blur(10px);
