@@ -3,11 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const desktopMenu = document.querySelector('[data-desktop-menu]');
   const mobileMenu = document.querySelector('[data-mob-menu]');
 
-  burgerWrapper.addEventListener('click', event => {
-    // Предотвращаем всплытие события на внутреннем элементе
-    event.stopPropagation();
-
-    // Переключаем классы открытого состояния
+  burgerWrapper.addEventListener('click', () => {
     burgerWrapper.querySelector('[data-burger-icon]').classList.toggle('open');
     desktopMenu.classList.toggle('open');
     mobileMenu.classList.toggle('open');
@@ -24,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('scroll', () => {
-    if (mobileMenu.classList.contains('open')) {
+    if (desktopMenu.classList.contains('open')) {
       closeMenus();
     }
   });

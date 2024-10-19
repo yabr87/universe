@@ -1,10 +1,13 @@
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   height: 100px;
   width: calc(100vw - 20px);
   overflow: hidden;
+  z-index: 50;
 
   .container {
     display: flex;
@@ -20,13 +23,30 @@
   margin-left: 50px;
 }
 
+.burger-wrapper {
+  position: relative;
+  width: 20px;
+  height: 14px;
+  margin-right: 20px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 150;
+
+  @include tablet {
+    margin-right: 50px;
+  }
+}
+
 .menu-icon {
   width: 20px;
   height: 14px;
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
-  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,23 +97,7 @@
   }
 }
 
-.burger-wrapper {
-  position: relative;
-  width: 20px;
-  height: 14px;
-  margin-right: 20px;
-  cursor: pointer;
-  outline: none;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
 
-  @include tablet {
-    margin-right: 50px;
-  }
-}
 
 .desk-menu-wrap {
   position: fixed;
@@ -104,8 +108,7 @@
   opacity: 0;
   transform: translateX(100%);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 50;
-visibility: hidden;
+  visibility: hidden;
 
   @include laptop {
     display: flex;
@@ -118,6 +121,7 @@ visibility: hidden;
   &.open {
     opacity: 1;
     transform: translateX(0);
+    z-index: 14;
   }
 }
 
@@ -137,7 +141,6 @@ visibility: hidden;
   right: 50px;
   display: flex;
   flex-direction: column;
-  z-index: 50;
 
   @include laptop {
     top: 140px;
@@ -171,7 +174,7 @@ font-size: 16px;
   transform: translateX(100%);
   transition: opacity 0.3s ease, transform 0.3s ease;
   overflow: hidden;
-  z-index: 50;
+  z-index: 14;
 
   &.open {
     opacity: 1;
