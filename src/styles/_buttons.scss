@@ -75,3 +75,50 @@
     color: var(--black);
   }
 }
+
+.btn-reverse {
+  position: relative;
+  width: 226px;
+  height: 46px;
+  padding: 0 15px;
+  border: 1px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--black);
+  background-color: var(--white);
+  transition: color 0.5s var(--tf-btn), border 0.5s var(--tf-btn);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--black);
+    transform-origin: top center;
+    transform: scale(1, 0);
+    transition: transform 0.6s var(--tf-btn);
+    z-index: 0;
+  }
+
+  &:hover {
+    color: var(--neutral-white);
+    border: 1px solid var(--white);
+  }
+
+  &:hover::before {
+    transform: scale(1, 1);
+    transform-origin: bottom center;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+    transition: color 0.5s var(--tf-btn);
+  }
+}

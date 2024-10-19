@@ -5,3 +5,139 @@
 .mission-text {
   max-width: 500px;
 }
+
+.faq {
+}
+
+.faq-title-wrap {
+  text-align: center;
+  margin-bottom: 16px;
+
+  @include tablet {
+    margin-bottom: 24px;
+  }
+
+  @include laptop {
+    margin-bottom: 60px;
+  }
+}
+
+.faq-title {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 23px;
+  color: var(--gray-copyright);
+  transition: color var(--timing-function-1);
+
+  @include laptop {
+    font-size: 32px;
+  }
+}
+
+.faq-item.active .faq-title {
+  color: var(--white);
+}
+
+
+.faq-item {
+  border-bottom: 1px solid rgba(217, 217, 217, 0.59);
+  padding: 16px 0;
+  cursor: pointer;
+
+  @include laptop {
+    padding: 32px 0 24px;
+  }
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  max-height: 0;
+  opacity: 0;
+  height: auto;
+  overflow: hidden;
+  transition: opacity var(--timing-function-1);
+}
+
+.faq-item.active .faq-answer {
+  margin-top: 24px;
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-description{
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.2;
+
+  @include laptop {
+    font-size: 17px;
+    
+  }
+}
+
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  background-color: var(--gray-copyright);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.faq-icon::before {
+  width: 12px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.faq-icon::after {
+  width: 2px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.faq-item.active .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  background-color: var(--white);
+}
+
+.faq-item.active .faq-icon::before {
+  opacity: 0;
+}
+
+.faq-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  margin-top: 24px;
+
+  @include laptop{
+    margin-top: 45px;
+  }
+  
+}
+
+.chevron-right {
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
