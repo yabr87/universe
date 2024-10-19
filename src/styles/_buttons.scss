@@ -78,10 +78,11 @@
 
 .btn-reverse {
   position: relative;
-  width: 226px;
-  height: 46px;
+  width: 100%;
+  max-width: 325px;
+  height: 50px;
   padding: 0 15px;
-  border: 1px solid var(--black);
+  border: 1px solid var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,6 +95,10 @@
   color: var(--black);
   background-color: var(--white);
   transition: color 0.5s var(--tf-btn), border 0.5s var(--tf-btn);
+
+  @include tablet {
+    width: 246px;
+  }
 
   &::before {
     content: '';

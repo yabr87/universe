@@ -1,3 +1,118 @@
+.hero-title-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 122px;
+
+  @include laptop{
+    margin-top: 147px;
+  }
+}
+
+.hero-title{
+  display: inline-flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--neutral-white);
+  margin-bottom: 8px;
+
+  @include tablet {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+  @include laptop {
+    font-size: 72px;
+  }
+}
+
+.hero-description{
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 8px;
+
+   @include tablet {
+      font-size: 17px;
+      margin-bottom: 16px;
+    }
+
+  @include laptop {
+    font-size: 21px;
+  }
+}
+
+.hero-text{
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--neutral-white);
+  margin-bottom: 24px;
+
+  @include tablet {
+      margin-bottom: 24px;
+    }
+
+  @include laptop {
+    font-size: 16px;
+  }
+}
+
+.hero-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  row-gap: 6px;
+
+  @include laptop {
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 16px;
+  }
+}
+
+.hero-email {
+  width: 100%;
+  max-width: 407px;
+  height: 50px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--neutral-white);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  outline: none;
+
+  transition: border-color 0.3s ease; 
+  
+  
+    &:focus {
+      border-color: rgba(255, 255, 255, 1);
+      outline: none; 
+    }
+  
+    &::placeholder {
+      color: var(--neutral-white);
+      opacity: 1; 
+    }
+
+}
+
 .discovery-text {
   max-width: 450px;
 }
@@ -6,8 +121,6 @@
   max-width: 500px;
 }
 
-.faq {
-}
 
 .faq-title-wrap {
   text-align: center;

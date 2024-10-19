@@ -8,5 +8,49 @@
     src="./videos/hero.mp4"
     poster="./img/home/section1.avif"
   ></video>
-  <div class="container video-container"></div>
+  <div class="container video-container">
+    <div class="hero-title-wrap">
+      <h1 class="hero-title">
+        Are We Alone In
+        <span>the Universe?</span>
+      </h1>
+      <p class="hero-description">
+        <span>Follow us closely—2025 could be </span>
+        <span>the year we get the answer.</span>
+      </p>
+      <span class="hero-text"
+        >Be the First to Discover What Could Be the Most Profound Discovery In
+        Human History</span
+      >
+    </div>
+    <form action="/subscribe" method="POST" class="hero-form">
+      <label for="email" class="visually-hidden">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="EMAIL"
+        autocomplete="off"
+        required
+        class="hero-email"
+      />
+      <button type="submit" class="btn-reverse">
+        <span>Join the Discovery</span>
+        <svg
+          class="chevron-right"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-right"
+        >
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
+    </form>
+  </div>
 </section>
