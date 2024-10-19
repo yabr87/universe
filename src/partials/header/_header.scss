@@ -96,24 +96,25 @@
 }
 
 .desk-menu-wrap {
-  display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 350px;
+  height: 120%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: var(--timing-function);
+  z-index: 50;
 
   @include laptop {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 350px;
-    height: 120%;
-    transition: var(--timing-function);
-    transform: translateX(100%);
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+  }
 
-    &.open {
-      display: flex;
-      flex-direction: column;
-      text-align: end;
-      z-index: 50;
-      transform: translateX(0);
-    }
+  &.open {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
