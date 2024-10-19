@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.header');
   const burgerWrapper = document.querySelector('[data-burger-btn]');
   const desktopMenu = document.querySelector('[data-desktop-menu]');
   const mobileMenu = document.querySelector('[data-mob-menu]');
 
-  burgerWrapper.addEventListener('click', event => {
-    // Предотвращаем всплытие события на внутреннем элементе
-    event.stopPropagation();
+  let lastScrollTop = 0;
+  let isHeaderVisible = true;
 
-    // Переключаем классы открытого состояния
+  burgerWrapper.addEventListener('click', () => {
     burgerWrapper.querySelector('[data-burger-icon]').classList.toggle('open');
     desktopMenu.classList.toggle('open');
     mobileMenu.classList.toggle('open');
@@ -24,7 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('scroll', () => {
-    if (mobileMenu.classList.contains('open')) {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop && isHeaderVisible) {
+      header.classList.add('hidden');
+      isHeaderVisible = false;
+    } else if (scrollTop < lastScrollTop && !isHeaderVisible) {
+      header.classList.remove('hidden');
+      isHeaderVisible = true;
+    }
+
+    lastScrollTop = scrollTop;
+
+    if (desktopMenu.classList.contains('open')) {
       closeMenus();
     }
   });
