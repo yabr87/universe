@@ -136,8 +136,10 @@
 }
 
 .chevron-right {
-  width: 12px;
-  height: 12px;
+  padding: 4px;
+  width: 24px;
+  height: 24px;
   margin-left: 8px;
-  transition: transform 0.3s ease;
+  stroke: currentColor;
+  transition: stroke 0.5s var(--tf-btn);
 }
