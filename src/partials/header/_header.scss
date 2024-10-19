@@ -8,6 +8,7 @@
   width: calc(100vw - 20px);
   overflow: hidden;
   z-index: 50;
+transition: transform 0.3s ease, opacity 0.3s ease;
 
   .container {
     display: flex;
@@ -15,6 +16,17 @@
     padding-right: 0;
   }
 }
+
+.header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.header.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 
 .header-nav {
   display: flex;
