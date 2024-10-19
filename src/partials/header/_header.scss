@@ -103,13 +103,16 @@
   height: 120%;
   opacity: 0;
   transform: translateX(100%);
-  transition: var(--timing-function);
+  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 50;
+visibility: hidden;
 
   @include laptop {
     display: flex;
     flex-direction: column;
     text-align: end;
+    visibility: visible;
+    opacity: 0;
   }
 
   &.open {
@@ -159,29 +162,25 @@ font-size: 16px;
 
 .mobile-menu {
   position: fixed;
-    right: 0;
-    top: 0;
-    width: 100%;
-    max-width: 350px;
-    height: 100vh;
-    transition: var(--timing-function);
-    transform: translateX(100%);
-    
-  
-    &.open {
-      display: flex;
-      flex-direction: column;
-      text-align: end;
-      z-index: 50;
-      transform: translateX(0);
-      overflow: auto;
-    }
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-width: 350px;
+  height: 100vh;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  z-index: 50;
 
-         @include laptop {
-           display: none;
-           visibility: hidden;
-           opacity: 0;
-         }
-    
+  &.open {
+    opacity: 1;
+    transform: translateX(0);
+    overflow: auto;
+  }
+
+  @include laptop {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
-
