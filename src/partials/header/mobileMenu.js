@@ -23,7 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  window.addEventListener('scroll', () => {
+  // Функция debounce
+  const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
+  const handleScroll = debounce(() => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop && isHeaderVisible) {
@@ -39,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (desktopMenu.classList.contains('open')) {
       closeMenus();
     }
-  });
+  }, 100); // можно настроить задержку
+
+  window.addEventListener('scroll', handleScroll);
 
   function closeMenus() {
     burgerWrapper.querySelector('[data-burger-icon]').classList.remove('open');
