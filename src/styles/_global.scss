@@ -93,6 +93,10 @@ section {
   height: 100%;
 }
 
+video::-webkit-media-controls {
+  display: none !important;
+}
+
 .nav-link {
   position: relative;
   display: inline-block;
