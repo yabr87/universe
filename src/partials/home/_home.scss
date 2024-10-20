@@ -85,7 +85,7 @@
   }
 }
 
-.hero-email {
+.email-galaxia {
   width: 100%;
   max-width: 325px;
   height: 50px;
@@ -99,6 +99,10 @@
   outline: none;
 
   transition: border-color 0.3s ease; 
+
+  @include laptop {
+    max-width: 402px;
+  }
   
   
     &:focus {
@@ -255,4 +259,28 @@
   margin-left: 8px;
   stroke: currentColor;
   transition: stroke 0.5s var(--tf-btn);
+}
+
+.join-us-text{
+  display: block;
+  
+  @include tablet {
+    width: 512px;
+  }
+}
+
+.join-us-form {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      row-gap: 6px;
+      margin-top: 16px;
+    
+      @include tablet {
+        flex-direction: row;
+        justify-content: start;
+        column-gap: 16px;
+        margin-top: 24px;
+      }
 }
