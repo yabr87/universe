@@ -1,4 +1,4 @@
-export const BouncerConfig = {
+export const bouncerConfig = {
   customValidations: {
     isValidPhone: function (field) {
       // Return true if there's an underscore (_) in the value, indicating an invalid input
