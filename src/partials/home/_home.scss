@@ -101,6 +101,14 @@
   }
 }
 
+.join-us-text {
+  display: block;
+
+  @include tablet {
+    width: 512px;
+  }
+}
+
 .fields-wrap {
   position: relative;
   width: 100%;
@@ -142,6 +150,7 @@
 .mission-text {
   max-width: 500px;
 }
+
 .expert-section{
   position: relative;
   display: flex;
@@ -151,13 +160,16 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: calc(100svh + 407px);
+  height: 100svh;
 
   @include tablet {
     height: 100svh;
     min-height: 650px;
-    max-height: 1024px;
+    max-height: 860px;
   }
+    @include laptop {
+      min-height: 860px;
+    }
 }
 
 .faq-title-wrap {
@@ -294,10 +306,21 @@
   transition: stroke 0.5s var(--tf-btn);
 }
 
-.join-us-text {
-  display: block;
 
-  @include tablet {
-    width: 512px;
+.visionary-name{
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--gray-copyright);
+
+  margin-top: 8px;
+}
+
+.visionary-content-wrap{
+  margin-top: 24px;
+
+  @include laptop{
+    margin-top: 37px;
   }
 }

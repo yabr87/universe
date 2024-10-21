@@ -17,28 +17,11 @@
     }
 }
 
-.home-link {
-    display: none;
 
+.pages-visionary-title{
     @include laptop {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-        font-size: 16px;
-        color: var(--neutral-white);
-        transition: color 0.3s ease;
-    
-        .icon-circle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--white);
-            border-radius: 50%;
-        }}
-   
+        text-align: start;
+    }
 }
 
 .page-text{
@@ -77,10 +60,31 @@
             }
 }
 
-.text-border{
-    padding-bottom: 37px;
-    border-bottom: 2px solid var(--white);
+.home-link {
+    display: none;
+
+    @include laptop {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-size: 16px;
+        color: var(--neutral-white);
+        transition: color 0.3s ease;
+
+        .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+    }
+
 }
+
 
 .page-info{
     display: flex;
@@ -112,20 +116,10 @@
     }
 }
 
-.expert-section{
-        display: flex;
-        flex-direction: column;
-        background-image: url('/img/home/section7.avif');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: calc(100svh + 407px);
-
-        @include tablet {
-        }
-    }
-
-
+.text-border {
+    padding-bottom: 37px;
+    border-bottom: 2px solid var(--white);
+}
 .img-wrap {
     position: relative;
     margin: 0 auto;
@@ -175,12 +169,11 @@
     margin-top: 16px;
 }
 
-.arrow-pages{
+.arrow-pages {
     position: absolute;
     bottom: 10px;
     left: 50%;
-    margin-top: 0;
-    rotate: 90deg;
+    transform: translateX(-50%) rotate(90deg); 
     width: 32px;
     height: 32px;
 }
