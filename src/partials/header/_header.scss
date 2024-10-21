@@ -48,6 +48,8 @@
   justify-content: center;
   transition: all 0.3s ease;
   z-index: 150;
+  width: 32px;
+  height: 32px;
 
   @include tablet {
     margin-right: 50px;
