@@ -106,7 +106,6 @@ video::-webkit-media-controls {
   color: var(--white);
   padding: 2px 0;
 
-
   &::before {
     content: '';
     position: absolute;
@@ -124,6 +123,10 @@ video::-webkit-media-controls {
     transform: scale(1, 1);
     transform-origin: left center;
   }
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 /*-- START  HOME --*/
