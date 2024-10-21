@@ -66,13 +66,15 @@
     z-index: -1;
   }
 
-  &:hover::before {
-    transform: scale(1, 1);
-    transform-origin: bottom center;
-  }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover::before {
+      transform: scale(1, 1);
+      transform-origin: bottom center;
+    }
 
-  &:hover {
-    color: var(--black);
+    &:hover {
+      color: var(--black);
+    }
   }
 }
 
@@ -93,8 +95,11 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--black);
-  background-color: var(--white);
-  transition: color 0.5s var(--tf-btn), border 0.5s var(--tf-btn);
+  background-color: var(--neutral-white);
+
+  transition:
+    color 0.5s var(--tf-btn),
+    border 0.5s var(--tf-btn);
 
   @include tablet {
     width: 246px;
@@ -111,15 +116,17 @@
     z-index: 0;
   }
 
-  &:hover {
-    color: var(--neutral-white);
-    border: 1px solid var(--white);
-    stroke:var(--neutral-white);
-  }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--neutral-white);
+      border: 1px solid var(--white);
+      stroke: var(--neutral-white);
+    }
 
-  &:hover::before {
-    transform: scale(1, 1);
-    transform-origin: bottom center;
+    &:hover::before {
+      transform: scale(1, 1);
+      transform-origin: bottom center;
+    }
   }
 
   span {
@@ -128,9 +135,9 @@
     transition: color 0.5s var(--tf-btn);
   }
 
-    .chevron-right {
-       position: relative;
-       z-index: 1;
-       transition: stroke 0.5s var(--tf-btn);
-     }
+  .chevron-right {
+    position: relative;
+    z-index: 1;
+    transition: stroke 0.5s var(--tf-btn);
+  }
 }
