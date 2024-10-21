@@ -39,13 +39,14 @@
 
 .page-text{
     font-weight: 400;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.2;
     margin-bottom: 37px;
     width: 100%;
 
     @include tablet {
         max-width: 720px;
+        font-size: 18px;
     }
 
         @include laptop {
@@ -56,12 +57,14 @@
 .page-section-title{
     margin-bottom: 32px ;
         font-weight: 700;
-        font-size: 46px;
-        line-height: 1.08696;
+        font-size: 20px;
+        line-height: 1.25;
         text-transform: uppercase;
         color: var(--white);
 
         @include tablet {
+            font-size: 46px;
+            line-height: 1.08696;
             margin-bottom: 37px;
             }
         
@@ -91,6 +94,7 @@
         @include laptop {
             padding-top: 100px;
             padding-bottom: 100px;
+            width: 1000px;
         }
 }
 
@@ -103,6 +107,20 @@
         height: 493px;
     }
 }
+
+.expert-section{
+        display: flex;
+        flex-direction: column;
+        background-image: url('/img/home/section7.avif');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: calc(100svh + 407px);
+
+        @include tablet {
+        }
+    }
+
 
 .img-wrap {
     position: relative;
@@ -161,4 +179,52 @@
     rotate: 90deg;
     width: 32px;
     height: 32px;
+}
+
+.expert-photo {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+
+    @include laptop {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+
+.page-experts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.page-expert-item {
+    display: flex;
+    column-gap: 24px;
+}
+
+.page-expert-text {
+    font-weight: 400;
+        font-size: 17px;
+        line-height: 1.2;
+        color: var(--white);
+
+        margin-bottom: 6px;
+
+        @include tablet {
+            font-size: 24px;
+        }
+}
+
+.page-expert-name {
+    font-weight: 700;
+        font-size: 16px;
+        line-height: 1.2;
+        color: var(--gray-copyright);
+
+        @include tablet {
+                font-size: 22px;
+            }
 }
