@@ -42,14 +42,32 @@
     font-size: 18px;
     line-height: 1.2;
     margin-bottom: 37px;
+    width: 100%;
 
     @include tablet {
-        width: 500px;
+        max-width: 720px;
     }
 
         @include laptop {
-            width: 768px;
+            max-width: 768px;
         }
+}
+
+.page-section-title{
+    margin-bottom: 32px ;
+        font-weight: 700;
+        font-size: 46px;
+        line-height: 1.08696;
+        text-transform: uppercase;
+        color: var(--white);
+
+        @include tablet {
+            margin-bottom: 37px;
+            }
+        
+            @include laptop {
+                width: 768px;
+            }
 }
 
 .text-border{
@@ -80,9 +98,59 @@
     width: 325px;
         height: 209px;
 
-@include laptop {
-    width: 768px;
-    height: 493px;}
+    @include laptop {
+        width: 768px;
+        height: 493px;
+    }
+}
+
+.img-wrap {
+    position: relative;
+    margin: 0 auto;
+}
+
+.img-extra-wrap{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: var(--black);
+        width: 325px;
+        height: 119px;
+        margin: 0 auto;
+        
+        @include laptop {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            width: 248px;
+            height: 165px;
+            margin-top: 0px;
+        }
+}
+
+.img-extra{   
+    margin-top: 16px;
+    width: 181px ;
+    height: 96px;
+
+    @include laptop {
+        right: 24px;
+        width: 228px;
+        margin-top: 0px;
+    }
+}
+
+.img-extra-text{
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--white);
+    margin-top: 16px;
 }
 
 .arrow-pages{
