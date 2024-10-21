@@ -142,6 +142,23 @@
 .mission-text {
   max-width: 500px;
 }
+.expert-section{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url('/img/home/section7.avif');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: calc(100svh + 407px);
+
+  @include tablet {
+    height: 100svh;
+    min-height: 650px;
+    max-height: 1024px;
+  }
+}
 
 .faq-title-wrap {
   text-align: center;
