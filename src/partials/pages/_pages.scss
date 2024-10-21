@@ -18,23 +18,26 @@
 }
 
 .home-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    font-size: 16px;
-    color: var(--neutral-white);
-    transition: color 0.3s ease;
+    display: none;
 
-    .icon-circle {
-        display: flex;
+    @include laptop {display: flex;
         align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background-color: var(--white);
-        border-radius: 50%;
-    }
+        gap: 10px;
+        text-decoration: none;
+        font-size: 16px;
+        color: var(--neutral-white);
+        transition: color 0.3s ease;
+    
+        .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border-radius: 50%;
+        }}
+   
 }
 
 .page-text{
