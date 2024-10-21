@@ -1,0 +1,27 @@
+.pages-title-wrap{
+    margin-top: 248px;
+    text-align: center;
+}
+
+.pages-title{
+    font-size: 36px;
+    line-height: 1.25;
+
+    @include laptop {
+        font-size: 72px;
+    }
+}
+
+.page-text{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.page-info{
+    align-items: center;
+}
+.page-img{
+width: 768px;
+height: 493px;
+}
