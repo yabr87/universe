@@ -20,7 +20,8 @@
 .home-link {
     display: none;
 
-    @include laptop {display: flex;
+    @include laptop {
+        display: flex;
         align-items: center;
         gap: 10px;
         text-decoration: none;
