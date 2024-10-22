@@ -9,6 +9,10 @@
   }
 }
 
+.home-section-desc-wrap{
+  position: relative;
+}
+
 .hero-title {
   display: inline-flex;
   flex-direction: column;
@@ -298,7 +302,7 @@
 }
 
 .chevron-right {
-  padding: 4px;
+  padding: 2px;
   width: 24px;
   height: 24px;
   margin-left: 8px;
@@ -306,6 +310,22 @@
   transition: stroke 0.5s var(--tf-btn);
 }
 
+.origins-img{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 375px;
+    height: 240px;
+
+  @include laptop {
+    transform: none;
+    top: 0px;
+    left: -50px;
+    width: 459px;
+    height: 240px;
+  }
+}
 
 .visionary-name{
   display: block;
