@@ -30,15 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleScroll = debounce(() => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    header.classList.toggle('scrolled', scrollTop > 0);
-
-    if (scrollTop > lastScrollTop && isHeaderVisible) {
-      header.classList.add('hidden');
-      isHeaderVisible = false;
-    } else if (scrollTop < lastScrollTop && !isHeaderVisible) {
-      header.classList.remove('hidden');
-      isHeaderVisible = true;
+    if (scrollTop < lastScrollTop) {
+      if (!isHeaderVisible) {
+        header.classList.remove('hidden');
+        isHeaderVisible = true;
+      }
+    } else {
+      if (isHeaderVisible) {
+        header.classList.add('hidden');
+        isHeaderVisible = false;
+      }
     }
+
+    header.classList.toggle('scrolled', scrollTop > 0);
 
     lastScrollTop = scrollTop;
 
