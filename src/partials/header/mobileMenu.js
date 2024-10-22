@@ -7,37 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastScrollTop = 0;
   let isHeaderVisible = true;
 
-  burgerWrapper.addEventListener('click', () => {
+  const toggleBurgerMenu = () => {
     burgerWrapper.querySelector('[data-burger-icon]').classList.toggle('open');
     desktopMenu.classList.toggle('open');
     mobileMenu.classList.toggle('open');
-  });
+  };
 
-  document.addEventListener('click', event => {
-    if (
-      !desktopMenu.contains(event.target) &&
-      !burgerWrapper.contains(event.target) &&
-      !mobileMenu.contains(event.target)
-    ) {
-      closeMenus();
-    }
-  });
+  const closeMenus = () => {
+    burgerWrapper.querySelector('[data-burger-icon]').classList.remove('open');
+    desktopMenu.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  };
 
-  // Функция debounce
   const debounce = (func, wait) => {
     let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
+    return (...args) => {
       clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
+      timeout = setTimeout(() => func(...args), wait);
     };
   };
 
   const handleScroll = debounce(() => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    header.classList.toggle('scrolled', scrollTop > 0);
 
     if (scrollTop > lastScrollTop && isHeaderVisible) {
       header.classList.add('hidden');
@@ -52,13 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (desktopMenu.classList.contains('open')) {
       closeMenus();
     }
-  }, 100); // можно настроить задержку
+  }, 100);
+
+  burgerWrapper.addEventListener('click', toggleBurgerMenu);
+
+  document.addEventListener('click', event => {
+    if (
+      !desktopMenu.contains(event.target) &&
+      !burgerWrapper.contains(event.target) &&
+      !mobileMenu.contains(event.target)
+    ) {
+      closeMenus();
+    }
+  });
 
   window.addEventListener('scroll', handleScroll);
-
-  function closeMenus() {
-    burgerWrapper.querySelector('[data-burger-icon]').classList.remove('open');
-    desktopMenu.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  }
 });
