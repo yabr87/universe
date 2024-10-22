@@ -1,5 +1,5 @@
 .pages-title-wrap{
-    margin-top: 248px;
+    margin-top: 185px;
     text-align: center;
 }
 
@@ -17,23 +17,10 @@
     }
 }
 
-.home-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    font-size: 16px;
-    color: var(--neutral-white);
-    transition: color 0.3s ease;
 
-    .icon-circle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background-color: var(--white);
-        border-radius: 50%;
+.pages-visionary-title{
+    @include laptop {
+        text-align: start;
     }
 }
 
@@ -73,10 +60,31 @@
             }
 }
 
-.text-border{
-    padding-bottom: 37px;
-    border-bottom: 2px solid var(--white);
+.home-link {
+    display: none;
+
+    @include laptop {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-size: 16px;
+        color: var(--neutral-white);
+        transition: color 0.3s ease;
+
+        .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+    }
+
 }
+
 
 .page-info{
     display: flex;
@@ -94,13 +102,14 @@
         @include laptop {
             padding-top: 100px;
             padding-bottom: 100px;
-            width: 1000px;
+            width: 828px;
         }
 }
 
 .page-video, .page-img{
+    object-fit: cover;
     width: 325px;
-        height: 209px;
+    height: 209px;
 
     @include laptop {
         width: 768px;
@@ -108,20 +117,16 @@
     }
 }
 
-.expert-section{
-        display: flex;
-        flex-direction: column;
-        background-image: url('/img/home/section7.avif');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: calc(100svh + 407px);
+.text-border {
+    display: block;
+    width: 100%;
+    padding-bottom: 37px;
+    border-bottom: 0.50px solid var(--white);
 
-        @include tablet {
-        }
+    @include laptop {
+        max-width: 768px;
     }
-
-
+}
 .img-wrap {
     position: relative;
     margin: 0 auto;
@@ -171,12 +176,11 @@
     margin-top: 16px;
 }
 
-.arrow-pages{
+.arrow-pages {
     position: absolute;
     bottom: 10px;
     left: 50%;
-    margin-top: 0;
-    rotate: 90deg;
+    transform: translateX(-50%) rotate(90deg); 
     width: 32px;
     height: 32px;
 }
@@ -228,3 +232,49 @@
                 font-size: 22px;
             }
 }
+
+.challenge-btn{
+    width: 100%;
+    max-width: 325px;
+
+    @include tablet {
+        width: 235px;
+    }
+
+    @include laptop{
+        
+    margin-right: auto;
+    }
+    
+}
+
+.about-us-btns{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+   
+
+    @include tablet {
+        flex-direction: row;
+        margin-right: auto;
+        gap: 24px;
+    }
+}
+
+ .about-btn{
+     width: 100%;
+    max-width: 325px;
+
+     @include tablet {
+         width: 226px;
+     }
+ }
+
+.about-reverse {
+     width: 100%;
+
+     @include tablet {
+         width: 235px;
+     }
+ }
