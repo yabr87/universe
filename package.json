@@ -10,6 +10,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "axios": "^1.7.2",
     "formbouncerjs": "^1.4.6",
     "micromodal": "^0.4.10",

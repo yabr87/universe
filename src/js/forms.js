@@ -5,6 +5,7 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import axios from 'axios';
 import MicroModal from 'micromodal';
 import { modalConfig } from './micromodal';
+import { showLoader, hideLoader } from './loader';
 
 new Bouncer('[data-form-hero]', bouncerConfig);
 new Bouncer('[data-form-join-us]', bouncerConfig);
@@ -23,9 +24,7 @@ heroForm.addEventListener('bouncerFormValid', handleSubmit);
 joinUsForm.addEventListener('bouncerFormValid', handleSubmit);
 
 async function sendData(form, formData) {
-  Loading.standard({
-    svgColor: '#1982c6',
-  });
+  showLoader();
 
   try {
     // await axios.post('../sendmail.php', formData, {
@@ -40,11 +39,11 @@ async function sendData(form, formData) {
 
     MicroModal.show('modal-2', modalConfig);
     form.reset();
-    Loading.remove();
+    hideLoader();
   } catch (error) {
     console.error('Error:', error);
 
-    Loading.remove();
+    hideLoader();
 
     Notify.failure('An error occurred, please try again.', {
       timeout: 3000,
