@@ -310,20 +310,28 @@
   transition: stroke 0.5s var(--tf-btn);
 }
 
-.origins-img{
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 375px;
-    height: 240px;
+.section-desc-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 
   @include laptop {
-    transform: none;
-    top: 0px;
-    left: -50px;
+    align-items: start;
+  }
+}
+
+.origins-img{
+  display: block;
+  width: 327px;
+    height: 240px;
+    margin-bottom: 70px;
+
+  @include laptop {
     width: 459px;
     height: 240px;
+    transform: translateX(-10%);
   }
 }
 
